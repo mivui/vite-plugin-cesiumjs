@@ -48,7 +48,7 @@ export default defineConfig({
 });
 
 ```
-* outDir: public/cesium
+* outDir: dist/cesium
 * url: /cesium
 
 
