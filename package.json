@@ -1,0 +1,67 @@
+{
+  "name": "vite-plugin-cesiumjs",
+  "version": "1.0.2",
+  "description": "vite-plugin-cesiumjs",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "eslint": "eslint --fix **/*.{ts,js}",
+    "rollup": "rollup -c rollup.config.js --bundleConfigAsCjs",
+    "api": "api-extractor run",
+    "build": "npm run rollup && npm run api && npm run eslint"
+  },
+  "peerDependencies": {
+    "vite": "^3.0.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "vite": "^3.0.0 || ^4.0.0",
+    "vite-plugin-static-copy": "^0.16.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/plugin-transform-runtime": "^7.22.7",
+    "@babel/preset-env": "^7.22.7",
+    "@microsoft/api-extractor": "^7.36.1",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^20.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "happy-dom": "^10.0.3",
+    "prettier": "^2.8.8",
+    "rollup": "^3.26.2",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.33.0"
+  },
+  "author": "mioxs",
+  "license": "MIT",
+  "keywords": [
+    "vite",
+    "cesiumjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mioxs/vite-plugin-cesiumjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mioxs/vite-plugin-cesiumjs/issues"
+  },
+  "homepage": "https://github.com/mioxs/vite-plugin-cesiumjs#readme"
+}
