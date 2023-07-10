@@ -37,11 +37,14 @@ export function cesiumBaseUrl(path?: string): Plugin {
         let url = base;
         if (command === 'build') {
           url = base + path || 'cesium';
-        } else {
-          url = `${base}node_modules/cesium/Build/CesiumUnminified/`;
+          return html.replace(
+            '  <script>//CESIUM_BASE_URL</script>',
+            `<script> window.CESIUM_BASE_URL = '${url}';</script>`,
+          );
         }
+        url = `${base}node_modules/cesium/Build/CesiumUnminified/`;
         return html.replace(
-          /<script>\/\/CESIUM_BASE_URL(.*?)<\/script>/,
+          '<script>//CESIUM_BASE_URL</script>',
           `<script> window.CESIUM_BASE_URL = '${url}';</script>`,
         );
       }
