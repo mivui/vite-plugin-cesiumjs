@@ -28,26 +28,29 @@ export function cesiumStatic(options: { outDir?: string; unminified?: boolean; l
   });
 }
 
-export function cesiumBaseUrl(path?: string): Plugin {
+export function cesiumBaseUrl(url = '/cesium'): Plugin {
   return {
     name: 'cesium-html-transform',
-    transformIndexHtml(html, { server }) {
-      if (server) {
-        const { base, command } = server.config;
-        let url = base;
-        if (command === 'build') {
-          url = base + path || 'cesium';
+    enforce: 'post',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html, { server }) {
+        if (server) {
+          const { base, command } = server.config;
+          if (command === 'serve') {
+            const devUrl = `${base}node_modules/cesium/Build/CesiumUnminified`;
+            return html.replace(
+              /<script>\/\/CESIUM_BASE_URL(.*?)<\/script>/,
+              `<script> window.CESIUM_BASE_URL = '${devUrl}';</script>`,
+            );
+          }
+        } else {
           return html.replace(
-            '  <script>//CESIUM_BASE_URL</script>',
-            `<script> window.CESIUM_BASE_URL = '${url}';</script>`,
+            /<script>\/\/CESIUM_BASE_URL(.*?)<\/script>/,
+            `  <script> window.CESIUM_BASE_URL = '${url}';</script>`,
           );
         }
-        url = `${base}node_modules/cesium/Build/CesiumUnminified/`;
-        return html.replace(
-          '<script>//CESIUM_BASE_URL</script>',
-          `<script> window.CESIUM_BASE_URL = '${url}';</script>`,
-        );
-      }
+      },
     },
   };
 }

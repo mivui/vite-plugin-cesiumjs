@@ -55,7 +55,7 @@ import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
 
 export default defineConfig({
   plugins: [
-    cesiumBaseUrl('earth'),
+    cesiumBaseUrl('/earth'),
     cesiumStatic({
       outDir: 'earth',
       unminified: true,
