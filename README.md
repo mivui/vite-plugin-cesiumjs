@@ -21,7 +21,7 @@ npm i vite-plugin-cesiumjs -D
   <link rel="icon" href="/favicon.svg" />
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>%VITE_APP_TITLE%</title>
+  <title>Vite App</title>
 </head>
 <body>
 <div id="app"></div>
@@ -35,21 +35,38 @@ npm i vite-plugin-cesiumjs -D
 
 ```ts
 import { defineConfig } from 'vite';
-import { staticCopyCesium, cesiumBaseUrl } from 'vite-plugin-cesiumjs';
+import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
 
 export default defineConfig({
   plugins: [
-    cesiumBaseUrl('cesium'),
-    staticCopyCesium({
-      outDir: 'cesium',
-      unminified: true, //isUnminified
+    cesiumBaseUrl(),
+    cesiumStatic(),
+  ],
+});
+
+```
+* out-dir: dist/cesium
+
+##### custom dir
+
+```ts
+import { defineConfig } from 'vite';
+import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
+
+export default defineConfig({
+  plugins: [
+    cesiumBaseUrl('earth'),
+    cesiumStatic({
+      outDir: 'earth',
+      unminified: true,
+      log: true,
     }),
   ],
 });
 
 ```
-* outDir: dist/cesium
-* url: /cesium
+* out-dir: dist/earth
+
 
 
 

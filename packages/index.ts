@@ -1,32 +1,34 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-export function staticCopyCesium(options: { outDir: string; unminified?: boolean }) {
-  const { outDir, unminified } = options;
+export function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: boolean }) {
+  const { outDir, unminified, log } = options;
+  const _outDir = outDir || 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
   return viteStaticCopy({
+    silent: log,
     targets: [
       {
         src: `node_modules/cesium/Build/${cesium}/Assets/*`,
-        dest: `${outDir}/Assets/`,
+        dest: `${_outDir}/Assets/`,
       },
       {
         src: `node_modules/cesium/Build/${cesium}/ThirdParty/*`,
-        dest: `${outDir}/ThirdParty/`,
+        dest: `${_outDir}/ThirdParty/`,
       },
       {
         src: `node_modules/cesium/Build/${cesium}/Widgets/*`,
-        dest: `${outDir}/Widgets/`,
+        dest: `${_outDir}/Widgets/`,
       },
       {
         src: `node_modules/cesium/Build/${cesium}/Workers/*`,
-        dest: `${outDir}/Workers/`,
+        dest: `${_outDir}/Workers/`,
       },
     ],
   });
 }
 
-export function cesiumBaseUrl(path: string): Plugin {
+export function cesiumBaseUrl(path?: string): Plugin {
   return {
     name: 'cesium-html-transform',
     transformIndexHtml(html, { server }) {
@@ -34,7 +36,7 @@ export function cesiumBaseUrl(path: string): Plugin {
         const { base, command } = server.config;
         let url = base;
         if (command === 'build') {
-          url = base + path;
+          url = base + path || 'cesium';
         } else {
           url = `${base}node_modules/cesium/Build/CesiumUnminified/`;
         }
