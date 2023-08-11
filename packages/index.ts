@@ -34,21 +34,27 @@ export function cesiumBaseUrl(url = '/cesium'): Plugin {
     enforce: 'post',
     transformIndexHtml: {
       order: 'post',
-      handler(html, { server }) {
+      handler(_html, { server }) {
         if (server) {
           const { base, command } = server.config;
           if (command === 'serve') {
             const devUrl = `${base}node_modules/cesium/Build/CesiumUnminified`;
-            return html.replace(
-              /<script>\/\/CESIUM_BASE_URL(.*?)<\/script>/,
-              `<script> window.CESIUM_BASE_URL = '${devUrl}';</script>`,
-            );
+            return [
+              {
+                tag: 'script',
+                children: ` window.CESIUM_BASE_URL = '${devUrl}'; `,
+                injectTo: 'head-prepend',
+              },
+            ];
           }
         } else {
-          return html.replace(
-            /<script>\/\/CESIUM_BASE_URL(.*?)<\/script>/,
-            `  <script> window.CESIUM_BASE_URL = '${url}';</script>`,
-          );
+          return [
+            {
+              tag: 'script',
+              children: ` window.CESIUM_BASE_URL = '${url}'; `,
+              injectTo: 'head-prepend',
+            },
+          ];
         }
       },
     },
