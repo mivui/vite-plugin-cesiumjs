@@ -30,7 +30,7 @@ export default defineConfig({
 
 ```ts
 import { defineConfig } from 'vite';
-import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
+import Cesiumjs from 'vite-plugin-cesiumjs';
 
 export default defineConfig({
   plugins: [

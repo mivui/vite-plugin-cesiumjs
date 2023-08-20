@@ -2,7 +2,7 @@ import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: boolean }) {
-  const { outDir, unminified, log } = Object.assign({}, options);
+  const { outDir, unminified, log } = options;
   const _outDir = outDir || 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
   return viteStaticCopy({
