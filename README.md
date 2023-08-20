@@ -15,12 +15,11 @@ npm i vite-plugin-cesiumjs -D
 
 ```ts
 import { defineConfig } from 'vite';
-import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
+import Cesiumjs from 'vite-plugin-cesiumjs';
 
 export default defineConfig({
   plugins: [
-    cesiumBaseUrl(),
-    cesiumStatic(),
+    Cesiumjs()
   ],
 });
 
@@ -35,11 +34,9 @@ import { cesiumBaseUrl ,cesiumStatic } from 'vite-plugin-cesiumjs';
 
 export default defineConfig({
   plugins: [
-    cesiumBaseUrl('/earth'),
-    cesiumStatic({
+    Cesiumjs({
+      url: '/earth',
       outDir: 'earth',
-      unminified: true,
-      log: true,
     }),
   ],
 });

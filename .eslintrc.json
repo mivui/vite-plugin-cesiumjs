@@ -41,6 +41,7 @@
         "disallowTypeAnnotations": false
       }
     ],
+    "camelcase": "off",
     "default-case": "off",
     "spaced-comment": "off",
     "require-await": "error",

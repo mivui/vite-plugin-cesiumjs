@@ -1,7 +1,7 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-export function cesiumStatic(options?: { outDir?: string; unminified?: boolean; log?: boolean }) {
+function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: boolean }) {
   const { outDir, unminified, log } = Object.assign({}, options);
   const _outDir = outDir || 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
@@ -28,7 +28,7 @@ export function cesiumStatic(options?: { outDir?: string; unminified?: boolean; 
   });
 }
 
-export function cesiumBaseUrl(url = '/cesium'): Plugin {
+function cesiumBaseUrl(url?: string): Plugin {
   return {
     name: 'cesium-html-transform',
     enforce: 'post',
@@ -51,7 +51,7 @@ export function cesiumBaseUrl(url = '/cesium'): Plugin {
           return [
             {
               tag: 'script',
-              children: ` window.CESIUM_BASE_URL = '${url}'; `,
+              children: ` window.CESIUM_BASE_URL = '${url || '/cesium'}'; `,
               injectTo: 'head-prepend',
             },
           ];
@@ -59,4 +59,21 @@ export function cesiumBaseUrl(url = '/cesium'): Plugin {
       },
     },
   };
+}
+
+export default function cesiumConfig(options?: {
+  url?: string;
+  outDir?: string;
+  unminified?: boolean;
+  log?: boolean;
+}) {
+  const { url, outDir, unminified, log } = Object.assign({}, options);
+  return [
+    cesiumBaseUrl(url),
+    cesiumStatic({
+      outDir,
+      unminified,
+      log,
+    }),
+  ];
 }
