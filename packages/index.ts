@@ -2,12 +2,12 @@ import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import polyfillNodejs from 'vite-plugin-polyfill-nodejs';
 
-function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: boolean }) {
-  const { outDir, unminified, log } = options;
+function cesiumStatic(options: { outDir?: string; unminified?: boolean }) {
+  const { outDir, unminified } = options;
   const _outDir = outDir || 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
-  return viteStaticCopy({
-    silent: log,
+  const plugins = viteStaticCopy({
+    silent: true,
     targets: [
       {
         src: `node_modules/cesium/Build/${cesium}/Assets/*`,
@@ -27,6 +27,7 @@ function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: bo
       },
     ],
   });
+  return plugins;
 }
 
 function cesiumBaseUrl(url?: string): Plugin {
@@ -66,16 +67,14 @@ export default function cesiumConfig(options?: {
   url?: string;
   outDir?: string;
   unminified?: boolean;
-  log?: boolean;
 }) {
-  const { url, outDir, unminified, log } = Object.assign({}, options);
+  const { url, outDir, unminified } = Object.assign({}, options);
   return [
     polyfillNodejs(),
     cesiumBaseUrl(url),
     cesiumStatic({
       outDir,
       unminified,
-      log,
     }),
   ];
 }
