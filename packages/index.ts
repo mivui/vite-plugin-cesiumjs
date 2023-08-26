@@ -1,5 +1,6 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import polyfillNodejs from 'vite-plugin-polyfill-nodejs';
 
 function cesiumStatic(options: { outDir?: string; unminified?: boolean; log?: boolean }) {
   const { outDir, unminified, log } = options;
@@ -69,6 +70,7 @@ export default function cesiumConfig(options?: {
 }) {
   const { url, outDir, unminified, log } = Object.assign({}, options);
   return [
+    polyfillNodejs(),
     cesiumBaseUrl(url),
     cesiumStatic({
       outDir,
