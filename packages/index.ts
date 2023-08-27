@@ -1,6 +1,52 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import polyfillNodejs from 'vite-plugin-polyfill-nodejs';
+
+function polyfillNodejs(): Plugin {
+  return {
+    name: 'cesium-polyfill-nodejs',
+    config: () => ({
+      resolve: {
+        alias: [
+          {
+            find: 'http',
+            replacement: require.resolve('stream-http'),
+          },
+          {
+            find: 'https',
+            replacement: require.resolve('https-browserify'),
+          },
+          {
+            find: 'url',
+            replacement: require.resolve('url'),
+          },
+          {
+            find: 'zlib',
+            replacement: require.resolve('browserify-zlib'),
+          },
+          //http,https,url,zlib dependencies resolve
+          {
+            find: 'buffer',
+            replacement: require.resolve('buffer'),
+          },
+          {
+            find: 'stream',
+            replacement: require.resolve('stream-browserify'),
+          },
+          {
+            find: 'events',
+            replacement: require.resolve('events'),
+          },
+          {
+            find: 'assert',
+            replacement: require.resolve('assert'),
+          },
+        ],
+      },
+    }),
+    enforce: 'pre',
+    apply: 'build',
+  };
+}
 
 function cesiumStatic(options: { outDir?: string; unminified?: boolean }) {
   const { outDir, unminified } = options;

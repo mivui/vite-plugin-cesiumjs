@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cesiumjs",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "vite-plugin-cesiumjs",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -19,8 +19,15 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.1",
     "vite": "^4.2.0",
-    "vite-plugin-polyfill-nodejs": "^1.0.3",
     "vite-plugin-static-copy": "^0.17.0"
   },
   "devDependencies": {
@@ -47,7 +54,7 @@
     "prettier": "^3.0.2",
     "rollup": "^3.28.1",
     "tslib": "^2.6.2",
-    "typescript": "~5.1.6",
+    "typescript": "^5.1.6",
     "vitest": "^0.34.3"
   },
   "author": "mioxs",
