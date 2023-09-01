@@ -2,7 +2,7 @@
 
 ### vite-plugin-cesiumjs
 [![npm version](https://img.shields.io/npm/v/vite-plugin-cesiumjs.svg)](https://www.npmjs.com/package/vite-plugin-cesiumjs)
-[![Alt](https://img.shields.io/npm/dm/vite-plugin-cesiumjs)](https://npmcharts.com/compare/vite-plugin-cesiumjs?minimal=true)
+[![Alt](https://img.shields.io/npm/dt/vite-plugin-cesiumjs)](https://npmcharts.com/compare/vite-plugin-cesiumjs?minimal=true)
 ![Alt](https://img.shields.io/github/license/mioxs/vite-plugin-cesiumjs)
 
 ### install
@@ -24,7 +24,7 @@ export default defineConfig({
 });
 
 ```
-* out-dir: dist/cesium
+* output dir: dist/cesium
 
 ##### custom dir
 
@@ -42,7 +42,7 @@ export default defineConfig({
 });
 
 ```
-* out-dir: dist/earth
+* output dir: dist/earth
 
 
 
