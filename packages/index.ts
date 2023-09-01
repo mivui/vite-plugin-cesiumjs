@@ -1,44 +1,56 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { resolve } from 'path';
 
 function polyfillNodejs(): Plugin {
+  const resourceJs = [
+    resolve(__dirname, 'node_modules/@cesium/engine/Source/Core/Resource.js'),
+    resolve(__dirname, 'node_modules/cesium/Source/Core/Resource.js'),
+  ];
   return {
-    name: 'cesium-polyfill-nodejs',
+    name: 'cesium-resolve-nodejs',
     config: () => ({
       resolve: {
         alias: [
           {
             find: 'http',
-            replacement: require.resolve('stream-http'),
+            replacement: 'http',
+            customResolver(_source, importer) {
+              if (importer && resourceJs.includes(resolve(importer))) {
+                return false;
+              }
+              return null;
+            },
           },
           {
             find: 'https',
-            replacement: require.resolve('https-browserify'),
+            replacement: 'https',
+            customResolver(_source, importer) {
+              if (importer && resourceJs.includes(resolve(importer))) {
+                return false;
+              }
+              return null;
+            },
           },
           {
             find: 'url',
-            replacement: require.resolve('url'),
+            replacement: 'url',
+            customResolver(_source, importer) {
+              if (importer && resourceJs.includes(resolve(importer))) {
+                return false;
+              }
+              return null;
+            },
           },
           {
             find: 'zlib',
-            replacement: require.resolve('browserify-zlib'),
-          },
-          //http,https,url,zlib dependencies resolve
-          {
-            find: 'buffer',
-            replacement: require.resolve('buffer'),
-          },
-          {
-            find: 'stream',
-            replacement: require.resolve('stream-browserify'),
-          },
-          {
-            find: 'events',
-            replacement: require.resolve('events'),
-          },
-          {
-            find: 'assert',
-            replacement: require.resolve('assert'),
+            replacement: 'zlib',
+            customResolver(_source, importer) {
+              if (importer && resourceJs.includes(resolve(importer))) {
+                return false;
+              }
+              return null;
+            },
           },
         ],
       },
