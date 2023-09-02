@@ -1,6 +1,6 @@
 # ⚡vite-plugin-cesiumjs
 
-### quickly start [`Cesium`]  in [`Vite`].
+### Quickly start `Cesium` in `Vite`.
 [![npm version](https://img.shields.io/npm/v/vite-plugin-cesiumjs.svg)](https://www.npmjs.com/package/vite-plugin-cesiumjs)
 [![Alt](https://img.shields.io/npm/dt/vite-plugin-cesiumjs)](https://npmcharts.com/compare/vite-plugin-cesiumjs?minimal=true)
 ![Alt](https://img.shields.io/github/license/mioxs/vite-plugin-cesiumjs)
