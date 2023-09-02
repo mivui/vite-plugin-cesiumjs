@@ -1,6 +1,6 @@
 # ⚡vite-plugin-cesiumjs
 
-### Quickly start [`Cesium`] in [`Vite`].
+#### Quickly start [`Cesium`] in [`Vite`].
 [`cesium`]: https://www.cesium.com/
 [`vite`]: https://vitejs.dev/
 [![npm version](https://img.shields.io/npm/v/vite-plugin-cesiumjs.svg)](https://www.npmjs.com/package/vite-plugin-cesiumjs)

@@ -1,12 +1,16 @@
 import type { Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { resolve } from 'path';
+import path from 'path';
 
 function polyfillNodejs(): Plugin {
-  const resourceJs = [
-    resolve(__dirname, 'node_modules/@cesium/engine/Source/Core/Resource.js'),
-    resolve(__dirname, 'node_modules/cesium/Source/Core/Resource.js'),
-  ];
+  function isResourceJs(importer: string) {
+    const resourceJs = [
+      path.resolve(process.cwd(), 'node_modules/@cesium/engine/Source/Core/Resource.js'),
+      path.resolve(process.cwd(), 'node_modules/cesium/Source/Core/Resource.js'),
+    ];
+    const importPath = path.resolve(importer);
+    return resourceJs.includes(importPath);
+  }
   return {
     name: 'cesium-resolve-nodejs',
     config: () => ({
@@ -16,7 +20,7 @@ function polyfillNodejs(): Plugin {
             find: 'http',
             replacement: 'http',
             customResolver(_source, importer) {
-              if (importer && resourceJs.includes(resolve(importer))) {
+              if (importer && isResourceJs(importer)) {
                 return false;
               }
               return null;
@@ -26,7 +30,7 @@ function polyfillNodejs(): Plugin {
             find: 'https',
             replacement: 'https',
             customResolver(_source, importer) {
-              if (importer && resourceJs.includes(resolve(importer))) {
+              if (importer && isResourceJs(importer)) {
                 return false;
               }
               return null;
@@ -36,7 +40,7 @@ function polyfillNodejs(): Plugin {
             find: 'url',
             replacement: 'url',
             customResolver(_source, importer) {
-              if (importer && resourceJs.includes(resolve(importer))) {
+              if (importer && isResourceJs(importer)) {
                 return false;
               }
               return null;
@@ -46,7 +50,7 @@ function polyfillNodejs(): Plugin {
             find: 'zlib',
             replacement: 'zlib',
             customResolver(_source, importer) {
-              if (importer && resourceJs.includes(resolve(importer))) {
+              if (importer && isResourceJs(importer)) {
                 return false;
               }
               return null;
