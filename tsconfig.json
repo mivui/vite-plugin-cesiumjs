@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist",
+    "outDir": "temp",
     "sourceMap": false,
     "target": "esnext",
     "useDefineForClassFields": false,
@@ -18,10 +18,7 @@
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["vitest/globals", "node"],
-    "rootDir": "./packages",
-    "paths": {
-      "pinia-plugin-store": ["packages"]
-    }
+    "rootDir": "./packages"
   },
   "include": ["packages/**/*.ts"]
 }
