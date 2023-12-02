@@ -1,5 +1,5 @@
-import type { Plugin } from 'vite';
 import path from 'path';
+import type { Plugin } from 'vite';
 
 export function polyfillNodejs(): Plugin {
   function isResourceJs(importer: string) {
