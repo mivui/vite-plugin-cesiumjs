@@ -12,7 +12,6 @@
     "test": "vitest",
     "eslint": "eslint --fix **/*.{ts,js}",
     "rollup": "rollup -c rollup.config.ts --bundleConfigAsCjs",
-    "api": "api-extractor run",
     "build": "npm run rollup && npm run eslint"
   },
   "peerDependencies": {
