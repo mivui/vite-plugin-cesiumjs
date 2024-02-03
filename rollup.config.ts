@@ -17,8 +17,8 @@ export default defineConfig([
     input,
     plugins,
     output: [
-      { file: 'dist/index.cjs.js', format: 'cjs' },
-      { file: 'dist/index.esm.js', format: 'es' },
+      // { file: 'dist/index.cjs.js', format: 'cjs' },
+      { file: 'dist/index.js', format: 'es' },
     ],
   },
   {
