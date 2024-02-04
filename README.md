@@ -6,10 +6,9 @@
 [![npm version](https://img.shields.io/npm/v/vite-plugin-cesiumjs.svg?style=flat-square)](https://www.npmjs.com/package/vite-plugin-cesiumjs)
 [![Alt](https://img.shields.io/npm/dt/vite-plugin-cesiumjs?style=flat-square)](https://npmcharts.com/compare/vite-plugin-cesiumjs?minimal=true)
 ![Vite Version](https://img.shields.io/badge/Vite->=5.0.0-brightgreen.svg?style=flat-square)
-![Cesium Version](https://img.shields.io/badge/Cesium->=1.114.0-brightgreen.svg?style=flat-square)
 ![Alt](https://img.shields.io/github/license/mioxs/vite-plugin-cesiumjs?style=flat-square)
 
-<p> Cesium version &lt; 1.114.0 or Vite&lt; 5.0.0 please use vite-plugin-cesiumjs@1.6.3
+<p> Vite version &lt; 5.0.0 please use vite-plugin-cesiumjs@1.6.3
 </p>
 
 ### install
@@ -18,7 +17,7 @@
 npm i vite-plugin-cesiumjs -D
 ```
 
-##### vite.config.ts
+### vite.config.ts
 
 ```ts
 import { defineConfig } from 'vite';
@@ -31,9 +30,18 @@ export default defineConfig({
 });
 
 ```
-* output dir: dist/cesium
 
-##### custom dir
+### API
+
+| property |          type      |                       description                 |    default     |                                        
+|:----------:|:----------------:|:-------------------------------------------------:|:--------------:|
+|     url    |      string      |                   cesium base url                 |   '/cesium'    |
+|   outDir   |      string      |   cesium outDir(base on the vite dist directory)  |   'cesium'     |
+|  polyfill  |      boolean     | cesium version &lt; 1.114.0 set the value to true |   undefined    |
+| unminified |      boolean     |          cesium uses uncompressed code            |   undefined    |
+
+
+### Example
 
 ```ts
 import { defineConfig } from 'vite';
@@ -47,9 +55,6 @@ export default defineConfig({
     }),
   ],
 });
-
-```
-* output dir: dist/earth
 
 
 
