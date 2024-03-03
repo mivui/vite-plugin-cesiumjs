@@ -8,8 +8,6 @@
 ![Vite Version](https://img.shields.io/badge/Vite->=5.0.0-brightgreen.svg?style=flat-square)
 ![Alt](https://img.shields.io/github/license/mioxs/vite-plugin-cesiumjs?style=flat-square)
 
-<p> Vite version &lt; 5.0.0 please use vite-plugin-cesiumjs@1.6.3
-</p>
 
 ### install
 
