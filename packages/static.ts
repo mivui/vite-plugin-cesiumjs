@@ -1,26 +1,29 @@
 import type { Target } from 'vite-plugin-static-copy';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-export function cesiumStatic(options: { outDir?: string; unminified?: boolean }) {
+export function cesiumStatic(options: {
+  outDir?: string;
+  unminified?: boolean;
+}) {
   const { outDir, unminified } = options;
-  const _outDir = outDir || 'cesium';
+  const useOutDir = outDir ?? 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
   const targets: Target[] = [
     {
       src: `node_modules/cesium/Build/${cesium}/Assets/*`,
-      dest: `${_outDir}/Assets/`,
+      dest: `${useOutDir}/Assets/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/ThirdParty/*`,
-      dest: `${_outDir}/ThirdParty/`,
+      dest: `${useOutDir}/ThirdParty/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/Widgets/*`,
-      dest: `${_outDir}/Widgets/`,
+      dest: `${useOutDir}/Widgets/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/Workers/*`,
-      dest: `${_outDir}/Workers/`,
+      dest: `${useOutDir}/Workers/`,
     },
   ];
 

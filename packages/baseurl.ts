@@ -23,11 +23,12 @@ export function cesiumBaseUrl(url?: string): Plugin {
           return [
             {
               tag: 'script',
-              children: ` window.CESIUM_BASE_URL = '${url || '/cesium'}'; `,
+              children: ` window.CESIUM_BASE_URL = '${url ?? '/cesium'}'; `,
               injectTo: 'head-prepend',
             },
           ];
         }
+        return undefined;
       },
     },
   };

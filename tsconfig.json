@@ -23,6 +23,6 @@
     "rootDir": "./packages",
     "types": ["vitest/globals"]
   },
-  "include": ["packages/**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -8,7 +8,7 @@ export function cesiumPlugin(options?: {
   polyfill?: boolean;
   unminified?: boolean;
 }) {
-  const { url, outDir, polyfill, unminified } = Object.assign({}, options);
+  const { url, outDir, polyfill, unminified } = { ...options };
   const plugins = [
     cesiumBaseUrl(url),
     cesiumStatic({
