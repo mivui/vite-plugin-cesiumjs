@@ -28,7 +28,6 @@ export function cesiumBaseUrl(url?: string): Plugin {
             },
           ];
         }
-        return undefined;
       },
     },
   };

@@ -6,24 +6,24 @@ export function cesiumStatic(options: {
   unminified?: boolean;
 }) {
   const { outDir, unminified } = options;
-  const useOutDir = outDir ?? 'cesium';
+  const getOutDir = outDir ?? 'cesium';
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
   const targets: Target[] = [
     {
       src: `node_modules/cesium/Build/${cesium}/Assets/*`,
-      dest: `${useOutDir}/Assets/`,
+      dest: `${getOutDir}/Assets/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/ThirdParty/*`,
-      dest: `${useOutDir}/ThirdParty/`,
+      dest: `${getOutDir}/ThirdParty/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/Widgets/*`,
-      dest: `${useOutDir}/Widgets/`,
+      dest: `${getOutDir}/Widgets/`,
     },
     {
       src: `node_modules/cesium/Build/${cesium}/Workers/*`,
-      dest: `${useOutDir}/Workers/`,
+      dest: `${getOutDir}/Workers/`,
     },
   ];
 

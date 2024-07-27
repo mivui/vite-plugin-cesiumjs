@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cesiumjs",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "vite-plugin-cesiumjs",
   "type": "module",
   "main": "./dist/index.js",
@@ -38,11 +38,11 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.14.12",
     "happy-dom": "^14.12.3",
-    "rollup": "^4.19.0",
+    "rollup": "^4.19.1",
     "rollup-plugin-dts": "^6.1.1",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
-    "typescript-eslint-standard": "^9.0.9",
+    "typescript-eslint-standard": "^9.0.12",
     "vitest": "^2.0.4"
   },
   "author": "mivui",
