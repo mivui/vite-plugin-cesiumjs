@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cesiumjs",
-  "version": "2.1.0",
+  "version": "3.1.0",
   "description": "vite-plugin-cesiumjs",
   "type": "module",
   "main": "./dist/index.js",
@@ -22,22 +22,22 @@
     "./*": "./*"
   },
   "dependencies": {
-    "vite": "^6.0.4",
-    "vite-plugin-static-copy": "^2.2.0"
+    "vite": "^7.0.0",
+    "vite-plugin-static-copy": "^3.1.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "@types/node": "^22.10.2",
-    "happy-dom": "^15.11.7",
-    "rollup": "^4.28.1",
-    "rollup-plugin-dts": "^6.1.1",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.3",
+    "@types/node": "^24.0.4",
+    "happy-dom": "^18.0.1",
+    "rollup": "^4.44.1",
+    "rollup-plugin-dts": "^6.2.1",
     "tslib": "^2.8.1",
-    "typescript": "^5.7.2",
-    "typescript-eslint-standard": "^9.29.0",
-    "vitest": "^2.1.8"
+    "typescript": "^5.8.3",
+    "typescript-eslint-standard": "^9.55.0",
+    "vitest": "^3.2.4"
   },
   "author": "mivui",
   "license": "MIT",
