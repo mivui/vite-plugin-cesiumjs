@@ -1,22 +1,26 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "resolvePackageJsonExports": true,
-    "esModuleInterop": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "NodeNext",
+    "skipLibCheck": true,
+    /* Node mode */
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "jsx": "preserve",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    /* Path config */
+    // "outDir": "temp",
     "sourceMap": false,
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
+    "baseUrl": ".",
     "types": ["vitest/globals"]
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "vitest.config.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
