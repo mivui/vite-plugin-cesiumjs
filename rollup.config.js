@@ -10,7 +10,7 @@ const plugins = [
   typescript({ tsconfig: './tsconfig.build.json' }),
 ];
 
-const input = './packages/index.ts';
+const input = './src/index.ts';
 
 export default defineConfig([
   {

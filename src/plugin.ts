@@ -1,5 +1,5 @@
-import { cesiumBaseUrl } from './baseurl';
-import { cesiumStatic } from './static';
+import { cesiumBaseUrl } from './baseurl.js';
+import { cesiumStatic } from './static.js';
 
 export function cesiumPlugin(options?: {
   url?: string;
