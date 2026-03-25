@@ -7,7 +7,7 @@ export default defineConfig({
   format: 'esm',
   outExtensions: () => {
     return {
-      js: '.ts',
+      js: '.js',
       dts: '.d.ts',
     };
   },
