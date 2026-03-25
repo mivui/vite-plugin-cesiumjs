@@ -20,6 +20,6 @@
     "baseUrl": ".",
     "types": ["vitest/globals"]
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "tsdown.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
