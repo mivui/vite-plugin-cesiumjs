@@ -15,9 +15,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     /* Path config */
-    // "outDir": "temp",
     "sourceMap": false,
-    "baseUrl": ".",
     "types": ["vitest/globals"]
   },
   "include": ["**/*.ts", "tsdown.config.ts"],

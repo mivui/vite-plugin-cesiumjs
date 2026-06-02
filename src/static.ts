@@ -10,20 +10,24 @@ export function cesiumStatic(options: {
   const cesium = unminified ? 'CesiumUnminified' : 'Cesium';
   const targets: Target[] = [
     {
-      src: `node_modules/cesium/Build/${cesium}/Assets/*`,
+      src: `node_modules/cesium/Build/${cesium}/Assets/**/*`,
       dest: `${getOutDir}/Assets/`,
+      rename: { stripBase: 5 },
     },
     {
-      src: `node_modules/cesium/Build/${cesium}/ThirdParty/*`,
+      src: `node_modules/cesium/Build/${cesium}/ThirdParty/**/*`,
       dest: `${getOutDir}/ThirdParty/`,
+      rename: { stripBase: 5 },
     },
     {
-      src: `node_modules/cesium/Build/${cesium}/Widgets/*`,
+      src: `node_modules/cesium/Build/${cesium}/Widgets/**/*`,
       dest: `${getOutDir}/Widgets/`,
+      rename: { stripBase: 5 },
     },
     {
-      src: `node_modules/cesium/Build/${cesium}/Workers/*`,
+      src: `node_modules/cesium/Build/${cesium}/Workers/**/*`,
       dest: `${getOutDir}/Workers/`,
+      rename: { stripBase: 5 },
     },
   ];
 
