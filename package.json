@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cesiumjs",
-  "version": "4.1.3",
+  "version": "4.1.5",
   "description": "vite-plugin-cesiumjs",
   "type": "module",
   "main": "./dist/index.js",
@@ -23,15 +23,17 @@
     "vite": ">=5.0.0"
   },
   "dependencies": {
-    "vite-plugin-static-copy": "^4.1.0"
+    "vite-plugin-static-copy": "^4.1.1"
   },
   "devDependencies": {
-    "@types/node": "^24.12.4",
-    "cesium": "^1.141.0",
-    "tsdown": "^0.22.1",
-    "typescript": "^6.0.3",
-    "typescript-eslint-standard": "^10.3.0",
-    "vitest": "^4.1.8"
+    "@types/node": "^26.1.1",
+    "cesium": "^1.143.0",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
+    "oxlint-tsgolint": "^0.24.0",
+    "tsdown": "^0.22.8",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   },
   "author": "mivui",
   "license": "MIT",
